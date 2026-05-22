@@ -1,7 +1,6 @@
 const userService = require("../services/userService");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { use } = require("react");
 
 
 // REGISTER
@@ -76,12 +75,12 @@ exports.getUserById = async (req, res) => {
 
 
 //Update user
-exports.updateUser = (req, res) => {
+exports.updateUser =async (req, res) => {
 
 
     try {
         await userService.updateUser(req.params.id, req.body)
-        res.json({ messgae: "Updated" });
+        res.json({ message: "Updated" });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -90,12 +89,12 @@ exports.updateUser = (req, res) => {
 
 //Delete User
 
-exports.deleteUser=(req,res)=>{
+exports.deleteUser=async (req,res)=>{
 
     try{
         await userService.deleteUser(req.params.id)
         res.json({
-           messgae: "successfully Deleted"
+           message: "successfully Deleted"
         });
     }catch(err){
         res.status(500).json(err)
