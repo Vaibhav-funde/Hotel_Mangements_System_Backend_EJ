@@ -47,8 +47,7 @@ exports.login = async (req, res) => {
 
 
 //Get All User
-exports.getAllusers = async (req, res) => {
-
+exports.getAllUsers = async (req, res) => {
     try {
         const users = await userService.getAllUser();
         res.json(users);
